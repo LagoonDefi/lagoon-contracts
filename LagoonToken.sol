@@ -5,7 +5,7 @@ pragma solidity 0.6.12;
 import "./libs/BEP20.sol";
 
 // LagoonToken with Governance.
-contract LagoonToken is BEP20("Lagoon Defi Token", "LAGOON") {
+contract LagoonToken is BEP20("Lagoon Defi", "LAGOON") {
     // Burn address
     address public constant BURN_ADDRESS = 0x000000000000000000000000000000000000dEaD;
     address public constant TEAM_ADRESS = 0xfCe86a00e2e327Ac7679c0B4B045614dFD4C6c44;

@@ -71,7 +71,7 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event SetFeeAddress(address indexed user, address indexed newAddress);
-    event UpdateEmissionRate(address indexed user, uint256 goosePerBlock);
+    event UpdateEmissionRate(address indexed user, uint256 lagoonPerBlock);
 
     constructor(
         LagoonToken _lagoon,
@@ -245,10 +245,10 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
     }
 
      //Pancake has to add hidden dummy pools inorder to alter the emission, here we make it simple and transparent to all.
-    function updateEmissionRate(uint256 _eggPerBlock) public onlyOwner {
+    function updateEmissionRate(uint256 _lagoonPerBlock) public onlyOwner {
         massUpdatePools();
-        eggPerBlock = _eggPerBlock;
-        emit UpdateEmissionRate(msg.sender, _eggPerBlock);
+        lagoonPerBlock = _lagoonPerBlock;
+        emit UpdateEmissionRate(msg.sender, _lagoonPerBlock);
     }
     
 }
